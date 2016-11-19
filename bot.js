@@ -5,8 +5,8 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-  botRegex = /@coinFlip$/;
-  var botRegex2 = /@randNum$/;
+  botRegex = /@randNum$/;
+  
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(400);
