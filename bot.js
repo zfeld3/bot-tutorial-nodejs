@@ -113,7 +113,9 @@ function coinFlip() {
 function magicConch() {
   var botResponse, options, body, botReq, userID, userNickname, conchResponses;
   conchResponses = ["Nothing", "Neither", "No", "Maybe Someday", "Yes", "Try Asking Again"];
-  botResponse = conchResponses[Math.round(Math.random() *5))];
+  var index = Math.random() * 5;
+  index = Math.round(index);
+  botResponse = conchResponses[index];
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
