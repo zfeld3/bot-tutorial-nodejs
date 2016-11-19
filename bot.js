@@ -5,17 +5,22 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-  botRegex = /@randNum$/;
+  botRegex = /@randNum10$/;
+  var botRegex3 = /@randNum100$/;
   var botRegex2 = /@coinFlip$/;
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(400);
-    randNum();
+    randNum(10);
     this.res.end();
   } 
   else if(request.text && botRegex2.test(request.text)){
     this.res.writeHead(400);
     coinFlip();
+    this.res.end();
+  }else if(request.text && botRegex3.test(request.text)){
+    this.res.writeHead(400);
+    randNum(100);
     this.res.end();
   }
   else {
@@ -24,10 +29,10 @@ function respond() {
     this.res.end();
   }
 }
-
-function randNum() {
+var upperLimit;
+function randNum(upperLimit) {
   var botResponse, options, body, botReq, userID, userNickname, randNumber;
-  randNumber = Math.random() * (9) + 1;
+  randNumber = Math.random() * (upperLimit -1) + 1;
   randNumber = Math.round(randNumber);
   botResponse = randNumber.toString();
 
