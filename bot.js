@@ -28,7 +28,7 @@ function respond() {
 function randNum() {
   var botResponse, options, body, botReq, userID, userNickname, randNumber;
   randNumber = Math.random() * (9) + 1;
-  botResponse = randNumber;
+  botResponse = randNumber.toString();
 
   options = {
     hostname: 'api.groupme.com',
