@@ -9,6 +9,7 @@ function respond() {
   var botRegex3 = /@randNum100$/;
   var botRegex2 = /@coinFlip$/;
   var botRegex4 = /@magicConch$/;
+  var botRegex5 = /(I'm|i'm) Hungry$/;
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(400);
@@ -26,6 +27,10 @@ function respond() {
   }else if(request.text && botRegex4.test(request.text)){
     this.res.writeHead(400);
     magicConch();
+    this.res.end();
+  }else if(request.text && botRegex5.test(request.text)){
+    this.res.writeHead(400);
+    hiImHackathonBot();
     this.res.end();
   }
   else {
@@ -145,7 +150,38 @@ function magicConch() {
   });
   botReq.end(JSON.stringify(body));
 }
+function hiImHackathonBot() {
+  var botResponse, options, body, botReq, userID, userNickname;
+    botResponse = "Hi hungry, I'm HackathonBot";
+  options = {
+    hostname: 'api.groupme.com',
+    path: '/v3/bots/post',
+    method: 'POST'
+  };
 
+  body = {
+    "bot_id" : botID,
+    "text" : botResponse
+  };
+
+  console.log('sending ' + botResponse + ' to ' + botID);
+
+  botReq = HTTPS.request(options, function(res) {
+      if(res.statusCode == 202) {
+        //neat
+      } else {
+        console.log('rejecting bad status code ' + res.statusCode);
+      }
+  });
+
+  botReq.on('error', function(err) {
+    console.log('error posting message '  + JSON.stringify(err));
+  });
+  botReq.on('timeout', function(err) {
+    console.log('timeout posting message '  + JSON.stringify(err));
+  });
+  botReq.end(JSON.stringify(body));
+}
 
 
 exports.respond = respond;
