@@ -10,7 +10,7 @@ function respond() {
   var botRegex2 = /@coinFlip$/;
   var botRegex4 = /@magicConch$/;
   var botRegex5 = /(I'm|im) hungry$/;
-  botRegex5 = botRegex5.toUpperCase();
+ 
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(400);
