@@ -9,7 +9,7 @@ function respond() {
   var botRegex3 = /@randNum100$/;
   var botRegex2 = /@coinFlip$/;
   var botRegex4 = /@magicConch$/;
-  var botRegex5 = /(I'm|i'm) Hungry$/;
+  var botRegex5 = /I'm Hungry$/;
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(400);
