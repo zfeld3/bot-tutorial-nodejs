@@ -6,16 +6,16 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
   botRegex = /@coinFlip$/;
-  var botRegex2 = /@randNum$/;
+  //var botRegex2 = /@randNum$/;
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(400);
     coinFlip();
     this.res.end();
-  } else if( request.text && botRegex2.test(request.text)){
-    this.res.writeHead(400);
-    randNumber(10);
-    this.res.end();
+  } //else if( request.text && botRegex2.test(request.text)){
+    //this.res.writeHead(400);
+    //randNumber(10);
+    //this.res.end();
   }
   else {
     console.log("don't care");
