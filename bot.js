@@ -88,7 +88,7 @@ function coinFlip() {
 
   body = {
     "bot_id" : botID,
-    "text" : botResponse
+    "text" : "dick"
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
