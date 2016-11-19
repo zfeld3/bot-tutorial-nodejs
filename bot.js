@@ -20,19 +20,19 @@ function respond() {
     this.res.end();
   } 
   else if(request.text && botRegex2.test(request.text)){
-    this.res.writeHead(400);
+    this.res.writeHead(200);
     coinFlip();
     this.res.end();
   }else if(request.text && botRegex3.test(request.text)){
-    this.res.writeHead(400);
+    this.res.writeHead(200);
     randNum(100);
     this.res.end();
   }else if(request.text && botRegex4.test(request.text)){
-    this.res.writeHead(400);
+    this.res.writeHead(200);
     magicConch();
     this.res.end();
   }else if(request.text && (botRegex5.test(request.text) || botRegex6.test(request.text) || botRegex7.test(request.text) || botRegex8.test(request.text))){
-    this.res.writeHead(400);
+    this.res.writeHead(200);
     hiImHackathonBot();
     this.res.end();
   }
