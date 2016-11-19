@@ -5,11 +5,16 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /jake is gay$/;
+  var coinFlip = Math.random();
+  if(random >= .5){
+    botRegex = /heads/;
+  }else{
+    botRegex = /tails/;
+  
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
-    postMessage();
+    mentionAll();
     this.res.end();
   } else {
     console.log("don't care");
@@ -18,9 +23,9 @@ function respond() {
   }
 }
 
-function postMessage() {
-  var botResponse, options, body, botReq;
-
+function coinFlip() {
+  var botResponse, options, body, botReq, userID, userNickname;
+  userId = [
   botResponse = '@Jake Harrington';
 
   options = {
