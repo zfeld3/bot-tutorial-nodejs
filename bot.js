@@ -8,6 +8,7 @@ function respond() {
   botRegex = /@randNum10$/;
   var botRegex3 = /@randNum100$/;
   var botRegex2 = /@coinFlip$/;
+  var botRegex4 = /@magicConch$/;
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(400);
@@ -21,6 +22,10 @@ function respond() {
   }else if(request.text && botRegex3.test(request.text)){
     this.res.writeHead(400);
     randNum(100);
+    this.res.end();
+  }else if(request.text && botRegex4.test(request.text)){
+    this.res.writeHead(400);
+    magicConch();
     this.res.end();
   }
   else {
@@ -75,6 +80,40 @@ function coinFlip() {
     botResponse = 'tails';
   }
 
+  options = {
+    hostname: 'api.groupme.com',
+    path: '/v3/bots/post',
+    method: 'POST'
+  };
+
+  body = {
+    "bot_id" : botID,
+    "text" : botResponse
+  };
+
+  console.log('sending ' + botResponse + ' to ' + botID);
+
+  botReq = HTTPS.request(options, function(res) {
+      if(res.statusCode == 202) {
+        //neat
+      } else {
+        console.log('rejecting bad status code ' + res.statusCode);
+      }
+  });
+
+  botReq.on('error', function(err) {
+    console.log('error posting message '  + JSON.stringify(err));
+  });
+  botReq.on('timeout', function(err) {
+    console.log('timeout posting message '  + JSON.stringify(err));
+  });
+  botReq.end(JSON.stringify(body));
+}
+
+function magicConch() {
+  var botResponse, options, body, botReq, userID, userNickname, conchResponses;
+  conchResponses = ['Nothing', 'Neither', 'No', 'Maybe Someday', 'Yes', 'Try Asking Again'];
+  botResponse = conchResponses[Math.round(Math.random() *5))];
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
