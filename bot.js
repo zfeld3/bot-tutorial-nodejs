@@ -24,10 +24,10 @@ function respond() {
     this.res.end();
   }
 }
-var upperLimit;
-function randNum(upperLimit) {
+
+function randNum() {
   var botResponse, options, body, botReq, userID, userNickname, randNumber;
-  randNumber = Math.random() * (upperLimit -1) + 1;
+  randNumber = Math.random() * (9) + 1;
   botResponse = randNumber;
 
   options = {
