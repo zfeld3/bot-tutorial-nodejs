@@ -10,7 +10,7 @@ function respond() {
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(400);
-    coinFlip();
+    randNum();
     this.res.end();
   } 
   else if(request.text && botRegex2.test(request.text)){
