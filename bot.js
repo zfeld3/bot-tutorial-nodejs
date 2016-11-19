@@ -96,7 +96,7 @@ function coinFlip() {
 
   body = {
     "bot_id" : botID,
-    "text" : botResponse
+    "text" : http://coins.silvercoinstoday.com/wp-content/uploads/2010/10/America-the-Beautiful-Silver-Coin-Obverse.jpg
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
