@@ -5,16 +5,12 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-  var coinFlip = Math.random();
-  if(random >= .5){
-    botRegex = /heads/;
-  }else{
-    botRegex = /tails/;
+  botRegex = '@coinFlip';
   
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
-    mentionAll();
+    coinFlip();
     this.res.end();
   } else {
     console.log("don't care");
@@ -24,9 +20,13 @@ function respond() {
 }
 
 function coinFlip() {
-  var botResponse, options, body, botReq, userID, userNickname;
-  userId = [
-  botResponse = '@Jake Harrington';
+  var botResponse, options, body, botReq, userID, userNickname, coinFlips;
+  coinFlips = Math.random();
+  if(coinFlips >= 0.5){
+    botResponse = 'heads';
+  }else{
+    botResponse = 'tails';
+  }
 
   options = {
     hostname: 'api.groupme.com',
