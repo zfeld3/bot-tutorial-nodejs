@@ -9,8 +9,10 @@ function respond() {
   var botRegex3 = /@randNum100$/;
   var botRegex2 = /@coinFlip$/;
   var botRegex4 = /@magicConch$/;
-  var botRegex5 = /(I'm|im) hungry$/;
- 
+  var botRegex5 = /I'm hungry$/;
+  var botRegex6 = /i'm hungry$/;
+  var botRegex7 = /Im hungry$/;
+  var botRegex8 = /im hungry$/;
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(400);
@@ -29,7 +31,7 @@ function respond() {
     this.res.writeHead(400);
     magicConch();
     this.res.end();
-  }else if(request.text && botRegex5.test(request.text))){
+  }else if(request.text && (botRegex5.test(request.text) || botRegex6.test(request.text) || botRegex7.test(request.text) || botRegex8.test(request.text))){
     this.res.writeHead(400);
     hiImHackathonBot();
     this.res.end();
