@@ -9,7 +9,7 @@ function respond() {
   
 
   if(request.text && botRegex.test(request.text)) {
-    this.res.writeHead(200);
+    this.res.writeHead(400);
     coinFlip();
     this.res.end();
   } else {
