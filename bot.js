@@ -5,7 +5,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-  botRegex = '@coinFlip';
+  botRegex = /@coinFlip$/;
   
 
   if(request.text && botRegex.test(request.text)) {
