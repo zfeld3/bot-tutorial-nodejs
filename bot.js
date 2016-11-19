@@ -28,6 +28,7 @@ function respond() {
 function randNum() {
   var botResponse, options, body, botReq, userID, userNickname, randNumber;
   randNumber = Math.random() * (9) + 1;
+  randNumber = Math.round(randNumber);
   botResponse = randNumber.toString();
 
   options = {
