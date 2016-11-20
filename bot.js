@@ -192,7 +192,7 @@ function hiImHackathonBot() {
 }
 function help() {
   var botResponse, options, body, botReq, userID, userNickname;
-    botResponse = '"@bot random number 1 through 10" , "@bot random number 1 throuhg 100" , "@bot flip a coin" , "magic conch"';
+    botResponse = '@bot random number 1 through 10 , @bot random number 1 throuhg 100 , @bot flip a coin , magic conch';
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
