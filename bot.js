@@ -6,18 +6,17 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-  botRegex = /@bot random number 1 through 10$/;
-  var botRegex3 = /@botrandom number 1 through 100$/;
-  var botRegex2 = /@bot flip a coin$/;
-  var botRegex4 = /magic conch$/;
+  botRegex = /@randNum10$/;
+  var botRegex3 = /@randNum100$/;
+  var botRegex2 = /@coinFlip$/;
+  var botRegex4 = /@magicConch$/;
   var botRegex5 = /I'm hungry$/;
   var botRegex6 = /i'm hungry$/;
   var botRegex7 = /Im hungry$/;
   var botRegex8 = /im hungry$/;
-  var botRegex9 = /@bot help$/;
   
   if(request.text && botRegex.test(request.text)) {
-    this.res.writeHead(200);
+    this.res.writeHead(400);
     randNum(10);
     this.res.end();
   } 
@@ -36,10 +35,6 @@ function respond() {
   }else if(request.text && (botRegex5.test(request.text) || botRegex6.test(request.text) || botRegex7.test(request.text) || botRegex8.test(request.text))){
     this.res.writeHead(200);
     hiImHackathonBot();
-    this.res.end();
-  }else if(request.text && (botRegex9.test(request.text)){
-    this.res.writeHead(200);
-    help();
     this.res.end();
   }
   else {
@@ -86,7 +81,7 @@ function randNum(upperLimit) {
 }
 
 function coinFlip() {
-  var botResponse, options, body, botReq, userID, userNickname, coinFlips, url;
+  var botResponse, options, body, botReq, userID, userNickname, coinFlips;
   coinFlips = Math.random();
   if(coinFlips >= 0.5){
     botResponse = "http://coins.silvercoinstoday.com/wp-content/uploads/2010/10/America-the-Beautiful-Silver-Coin-Obverse.jpg";
