@@ -31,7 +31,7 @@ function respond() {
   }else if(request.text && botRegex4.test(request.text)){
     this.res.writeHead(200);
     gifAndWait();
-    window.setInterval(magicConch(), 500);
+    magicConch();
     this.res.end();
   }else if(request.text && (botRegex5.test(request.text) || botRegex6.test(request.text) || botRegex7.test(request.text) || botRegex8.test(request.text))){
     this.res.writeHead(200);
