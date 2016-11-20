@@ -5,10 +5,10 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-  botRegex = /@randNum10$/;
-  var botRegex3 = /@randNum100$/;
-  var botRegex2 = /@coinFlip$/;
-  var botRegex4 = /@magicConch$/;
+  botRegex = /@bot random number 1 through 10$/;
+  var botRegex3 = /@bot random number 1 through 100$/;
+  var botRegex2 = /@bot flip a coin$/;
+  var botRegex4 = /magic conch$/;
   var botRegex5 = /I'm hungry$/;
   var botRegex6 = /i'm hungry$/;
   var botRegex7 = /Im hungry$/;
