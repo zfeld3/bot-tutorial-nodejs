@@ -80,12 +80,14 @@ function randNum(upperLimit) {
 }
 
 function coinFlip() {
-  var botResponse, options, body, botReq, userID, userNickname, coinFlips;
+  var botResponse, options, body, botReq, userID, userNickname, coinFlips, url;
   coinFlips = Math.random();
   if(coinFlips >= 0.5){
-    botResponse = "http://coins.silvercoinstoday.com/wp-content/uploads/2010/10/America-the-Beautiful-Silver-Coin-Obverse.jpg";
+    botResponse = 'heads';
+    url = "http://coins.silvercoinstoday.com/wp-content/uploads/2010/10/America-the-Beautiful-Silver-Coin-Obverse.jpg"
   }else{
-    botResponse = "https://images-na.ssl-images-amazon.com/images/I/51NyMaKLydL.jpg";
+    botResponse = 'tails';
+    url = "https://images-na.ssl-images-amazon.com/images/I/51NyMaKLydL.jpg"
   }
 
   options = {
@@ -96,7 +98,10 @@ function coinFlip() {
 
   body = {
     "bot_id" : botID,
-    "text" : botResponse
+    "text" : botResponse, 
+    "attatchments": [{
+      "type":"image",
+      "url" : url }]
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
