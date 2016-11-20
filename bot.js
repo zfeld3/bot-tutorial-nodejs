@@ -189,7 +189,7 @@ function hiImHackathonBot() {
 }
 function gif() {
   var botResponse, options, body, botReq, userID, userNickname;
-    botResponse = "http://makeagif.com/i/AAOe2o";
+    botResponse = "http://i.makeagif.com/media/11-20-2016/AAOe2o.gif";
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
